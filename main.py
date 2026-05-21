@@ -1,4 +1,4 @@
-import json
+import storage
 
 def start_menu():
 
@@ -15,11 +15,11 @@ def start_menu():
         choice = input("Enter option: ")
 
         if choice == "1":
-            add_source()
+            storage.add_source()
         elif choice == "2":
             pass
         elif choice == "3":
-            opens_source()
+            storage.opens_source()
         elif choice == "4":
             pass
         elif choice == "5":
@@ -31,48 +31,8 @@ def start_menu():
         else:
             print("Invalid option, enter 1-6.")
 
-
 sources = []
 
-def add_source():
-    author = input("author: ")
-    title = input("title: ")
-    publication = input("publication: ")
-    date = input("date: ")
-    url = input("url: ")
-    tag = input("tag: ")
-    notes = input("notes: ")
-
-    new_source = {
-        "author": author,
-        "title": title,
-        "publication": publication,
-        "date": date,
-        "url": url,
-        "tag": tag,
-        "notes": notes
-    }
-
-    try:
-        with open("evidence.json", "r") as file:
-            sources = json.load(file)
-    except FileNotFoundError:
-        sources = []
-
-    sources.append(new_source)
-
-    with open("evidence.json", "w") as file:
-        json.dump(sources, file, indent=4)
-    print("Source added to evidence.json")
-
-
-
-
-def opens_source():
-    with open("evidence.json", "r") as file:
-        sources = json.load(file)
-        for source in sources:
-            print(source)
 
 
 def main():
