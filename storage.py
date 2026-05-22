@@ -4,7 +4,6 @@ import json
 #everything that touches evidence.json
 
 
-
 def add_source():
     author = input("author: ")
     title = input("title: ")
@@ -44,3 +43,9 @@ def opens_source():
         sources = json.load(file)
         for source in sources:
             print(source)
+
+
+
+
+def search_evidence():
+    
