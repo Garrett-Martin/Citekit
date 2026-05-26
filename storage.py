@@ -42,23 +42,10 @@ def add_source():
         "notes": notes
     }
 
-    #sources = load_evidence()
-    #sources.append(new_source)
-    #save_evidence(sources)
-    #print("\nSource added to evidence.json\n")
-
-
-    try:
-        with open("evidence.json", "r") as file:
-            sources = json.load(file)
-    except FileNotFoundError:
-        sources = []
-
+    sources = load_evidence()
     sources.append(new_source)
-
-    with open("evidence.json", "w") as file:
-        json.dump(sources, file, indent=4)
-    print("Source added to evidence.json")
+    save_evidence(sources)
+    print("\nSource added to evidence.json\n")
 
 
 
@@ -83,29 +70,14 @@ def display_evidence(source):
 
 
 def view_sources():
-    sources = load_sources()
+    sources = load_evidence()
 
-    if len(sources) == 0
+    if len(sources) == 0:
         print("\nNo saved evidence.\n")
         return
     
     for source in sources:
         display_evidence(source)
-
-
-
-
-
-
-
-    with open("evidence.json", "r") as file:
-        sources = json.load(file)
-        for source in sources:
-            print(source)
-
-
-
-
 
 
 
@@ -133,8 +105,34 @@ def search_evidence():
 
 
 def filter_by_tag():
-    #TODO
+    keyword = input("Enter tag: ").lower()
+
+    sources = load_evidence()
+
+    found = False
+    for source in sources:
+        tag = source.get("tag", "").lower()
+
+        if keyword in tag:
+            display_evidence(source)
+            found = True
+
+    if not found:
+        print("\nNo matching tags found.\n")
 
 
 def filter_by_author():
-    #TODO
+    keyword = input("Enter author: ").lower()
+
+    sources = load_evidence()
+
+    found = False
+    for source in sources:
+        author = source.get("author", "").lower()
+
+        if keyword in author:
+            display_evidence(source)
+            found = True
+
+    if not found:
+        print("\nNo matching authors found.\n")
