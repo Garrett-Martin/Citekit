@@ -1,4 +1,5 @@
 import storage
+import formatter
 
 def start_menu():
 
@@ -19,11 +20,11 @@ def start_menu():
         elif choice == "2":
             pass
         elif choice == "3":
-            storage.opens_source()
+            storage.view_sources()
         elif choice == "4":
-            pass
+            storage.search_evidence()
         elif choice == "5":
-            pass
+            formatter.format_citation()
         elif choice == "6":
             exiting = "Program in exiting"
             print(exiting)

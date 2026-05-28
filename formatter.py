@@ -8,6 +8,7 @@
 
 def format_citation(source):
 
+    tag = source["tag"]
     author = source["author"]
     qualifications = source["qualifications"]
     title = source["title"]
@@ -23,6 +24,7 @@ def format_citation(source):
     citation = (
     #not a tuple, uses f strings to insert the input and
     #glues them together with the parentheses at the ends
+        f"[{source['tag']}]\n"
         f"{last_name} {short_year} — "
         f"{author}, "
         f"{qualifications}. "
