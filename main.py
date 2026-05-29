@@ -1,5 +1,6 @@
 import storage
 import formatter
+import scraper
 
 def start_menu():
 
@@ -18,7 +19,9 @@ def start_menu():
         if choice == "1":
             storage.add_source()
         elif choice == "2":
-            pass
+            url = input("Enter URL: ")
+            scraped_source = scraper.scrape_source(url)
+            print(scraped_source)
         elif choice == "3":
             storage.view_sources()
         elif choice == "4":
