@@ -61,6 +61,8 @@ def scrape_source(url):
             "qualifications": "",
             "signature": ""
         }
+#ask for manual entry for tag, notes, quals, signature
+
 
         return source
     

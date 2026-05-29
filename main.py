@@ -21,7 +21,25 @@ def start_menu():
         elif choice == "2":
             url = input("Enter URL: ")
             scraped_source = scraper.scrape_source(url)
-            print(scraped_source)
+            if scraped_source is not None:
+                print(scraped_source)
+
+                scraped_source["qualifications"] = input("Paste in Qualifications: ")
+                
+                scraped_source["tag"] = input("Paste in Tag: ")
+
+                scraped_source["notes"] = input("Paste in Notes: ")
+
+                scraped_source["signature"] = input("Paste in Signature: ")
+
+                sources = storage.load_evidence()
+                sources.append(scraped_source)
+                storage.save_evidence(sources)
+
+                print("Scraping Successful")
+            else:
+                print("Scraping failed.")
+
         elif choice == "3":
             storage.view_sources()
         elif choice == "4":
