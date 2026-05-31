@@ -62,18 +62,15 @@ def start_menu():
                 pick = input("\nSelect a source number: ")
                 selected = sources[int(pick) - 1]
                 citation = formatter.format_citation(selected)
-                print("\nFormatted Citation")
+                print("\nFormatted Citation:")
                 print(citation)
 
-            formatter.format_citation(sources)
         elif choice == "6":
             exiting = "Program in exiting"
             print(exiting)
             return False
         else:
             print("Invalid option, enter 1-6.")
-
-sources = []
 
 
 

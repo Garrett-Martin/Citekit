@@ -30,10 +30,10 @@ def format_citation(source):
 
     tag = source["tag"]
     author = source["author"]
+    date = source["date"]
     qualifications = source["qualifications"]
     title = source["title"]
     publication = source["publication"]
-    date = source["date"]
     url = source["url"]
     signature = source["signature"]
 
@@ -47,10 +47,10 @@ def format_citation(source):
         f"[{tag}]\n"
         f"{ev_author} {short_year} — "
         f"{author}, "
+        f"{date}, "
         f"{qualifications}. "
         f"\"{title},\" "  #for quotations
         f"{publication}, " #look into process for italicizing in terminal
-        f"{date}, "
         f"{url}, "
         f"{signature}"
     )
