@@ -45,7 +45,27 @@ def start_menu():
         elif choice == "4":
             storage.search_evidence()
         elif choice == "5":
-            formatter.format_citation()
+            sources = storage.load_evidence()
+
+            if len(sources) == 0:
+                print("\nNo saved sources.\n") #edge case
+
+            else:
+                print("\nSaved Sources:\n")
+
+                for index, source in enumerate(sources):
+                    print(
+                        f"{index + 1}. "
+                        f"{source['author']} : "
+                        f"{source['title']}"
+                    )
+                pick = input("\nSelect a source number: ")
+                selected = sources[int(pick) - 1]
+                citation = formatter.format_citation(selected)
+                print("\nFormatted Citation")
+                print(citation)
+
+            formatter.format_citation(sources)
         elif choice == "6":
             exiting = "Program in exiting"
             print(exiting)
@@ -62,3 +82,6 @@ def main():
 
 
 main()
+
+
+
